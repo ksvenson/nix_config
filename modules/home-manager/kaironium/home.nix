@@ -4,6 +4,7 @@
   imports = [
     ./git.nix
     ./browser.nix
+    ./ssh.nix
   ];
 
   home.username = "kaironium";
