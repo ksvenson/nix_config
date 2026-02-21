@@ -6,6 +6,7 @@
     ./browser.nix
     ./ssh.nix
     ./comms.nix
+    ./i3.nix
   ];
 
   home.username = "kaironium";
