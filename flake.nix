@@ -24,7 +24,7 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/emperor/configuration.nix
+            ./modules/hosts/emperor/configuration.nix
             agenix.nixosModules.default
           ];
         };
