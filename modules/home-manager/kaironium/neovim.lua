@@ -1,0 +1,9 @@
+vim.opt.number = true
+vim.optrelativenumber = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.wrap = false
+vim.opt.terminalguicolors = true
+vim.opt.scroffoff = 8
+vim.opt.signcolum = "yes"

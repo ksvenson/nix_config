@@ -12,6 +12,9 @@
         r = "semicolon";
       in {
         modifier = mod;
+
+        terminal = "kitty";
+
         keybindings = lib.mkOptionDefault {
           "${mod}+${u}" = "focus up";
           "${mod}+${d}" = "focus down";
@@ -23,6 +26,7 @@
           "${mod}+Shift+${l}" = "move left";
           "${mod}+Shift+${r}" = "move right";
         };
+
         modes.resize = {
           "${u}" = "resize grow height 10 px or 10 ppt";
           "${d}" = "resize shrink height 10 px or 10 ppt";
