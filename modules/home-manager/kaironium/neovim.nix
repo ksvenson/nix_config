@@ -3,6 +3,6 @@
     enable = true;
     defaultEditor = true;
     vimAlias = true;
-    extraLuaConfig = builtins.readFile ./neovim.lua;
+    initLua = builtins.readFile ./neovim.lua;
   };
 }
