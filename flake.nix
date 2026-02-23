@@ -24,14 +24,14 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./modules/hosts/emperor/configuration.nix
+            ./modules/machines/emperor/configuration.nix
             agenix.nixosModules.default
           ];
         };
       };
       homeConfigurations.kaironium = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./modules/home-manager/kaironium/home.nix ];
+        modules = [ ./modules/users/kaironium/home.nix ];
       };
     };
 }

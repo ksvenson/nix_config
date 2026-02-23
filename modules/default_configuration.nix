@@ -25,12 +25,12 @@
     kaironium_user_passwd.file = ../secrets/kaironium_user_passwd.age;
   };
 
+  users.mutableUsers = false;
+
   users.users.root = {
     hashedPasswordFile = config.age.secrets.root_user_passwd.path;
   };
 
-  users.mutableUsers = false;
-  
   users.users.kaironium = {
     isNormalUser = true;
     description = "kaironium";
