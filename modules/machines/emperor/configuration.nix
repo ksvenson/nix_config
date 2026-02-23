@@ -1,12 +1,4 @@
-{ config, lib, pkgs, ... }:
-
-{
-  imports =
-    [
-      ../../default_configuration.nix
-      ./hardware-configuration.nix
-    ];
-
+{ config, lib, pkgs, ... }: {
   networking.hostName = "emperor";
 
   # Set your time zone.

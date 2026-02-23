@@ -1,16 +1,4 @@
-{ config, pkgs, ... }:
-
-{
-  imports = [
-    ./git.nix
-    ./browser.nix
-    ./ssh.nix
-    ./comms.nix
-    ./i3.nix
-    ./kitty.nix
-    ./neovim.nix
-  ];
-
+{ config, pkgs, ... }: {
   home.username = "kaironium";
   home.homeDirectory = "/home/kaironium";
 

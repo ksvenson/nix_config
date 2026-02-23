@@ -21,8 +21,8 @@
   };
 
   age.secrets = {
-    root_user_passwd.file = ../secrets/root_user_passwd.age;
-    kaironium_user_passwd.file = ../secrets/kaironium_user_passwd.age;
+    root_user_passwd.file = ../../secrets/root_user_passwd.age;
+    kaironium_user_passwd.file = ../../secrets/kaironium_user_passwd.age;
   };
 
   users.mutableUsers = false;

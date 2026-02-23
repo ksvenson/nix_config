@@ -3,17 +3,21 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    import-tree.url = "github:vic/import-tree";
   };
 
-  outputs = { self, nixpkgs, home-manager, agenix, ... }@inputs:
+  outputs = inputs@{ self, nixpkgs, home-manager, agenix, import-tree, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -24,14 +28,15 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./modules/machines/emperor/configuration.nix
+            (import-tree ./modules/global)
+            (import-tree ./modules/machines/emperor)
             agenix.nixosModules.default
           ];
         };
       };
       homeConfigurations.kaironium = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./modules/users/kaironium/home.nix ];
+        modules = [ (import-tree ./modules/users/kaironium) ];
       };
     };
 }
