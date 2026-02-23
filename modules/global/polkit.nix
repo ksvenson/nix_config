@@ -19,6 +19,6 @@
     '';
   };
 
-  users.groups.power = {}
+  users.groups.power = {};
 }
 
