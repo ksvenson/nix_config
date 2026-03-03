@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,26 +19,9 @@
     import-tree.url = "github:vic/import-tree";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, agenix, import-tree, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      nixosConfigurations = {
-        emperor = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            (import-tree ./modules/global)
-            (import-tree ./modules/machines/emperor)
-            agenix.nixosModules.default
-          ];
-        };
-      };
-      homeConfigurations.kaironium = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ (import-tree ./modules/users/kaironium) ];
-      };
-    };
+  outputs = inputs@{flake-parts, import-tree, ...}: flake-parts.lib.mkFlake { inherit inputs; } { 
+    systems = [ "x86_64-linux" ];
+    imports = [./modules/starter-part.nix]; };
+
 }
+
