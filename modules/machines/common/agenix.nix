@@ -1,10 +1,14 @@
-{ config, inputs, self, machineInfo, ... }: {
+{ lib, config, inputs, self, machine, ... }: {
   imports = [ inputs.agenix.nixosModules.default ];
 
-  secrets_dir = "${self}/modules/machines/${machineIngo.hostName}/secrets";
+  secrets_dir = "${self}/modules/machines/${machine.hostName}/secrets";
 
-  age.secrets = {
-    root_pw.file = "${config.secrets_dir}/root_pw.age";
-    "${machineInfo.owner.name}_pw".file = "${config.secrets_dir}/${machineInfo.owner.name}_pw.age";
+  age.secrets = lib.mapAttrs' (_: user: lib.nameValuePair ("${user.name}_pw") ({
+    file = "${config.secrets_dir}/${user.name}_pw.age";
+    # TODO: add owner and group attributes here?
+  })) machine.users
+
+  age.secrets.root_pw = {
+    file = "${config.secrets_dir}/root_pw.age";
   };
 }

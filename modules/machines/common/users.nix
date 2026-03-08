@@ -1,19 +1,23 @@
-{ config, machineInfo, ... }: {
-  users.mutableUsers = false;
+{ config, pkgs, machine, ... }: {
+  let
+    buildUser = user: {
+      isNormalUser = true;
+      shell = pkgs.bash;
+      home = "/home/${user.name}";
+      hasedPasswordFile = config.age.secrets."${user.name}_pw".path
+    };
+  in
+    users.mutableUsers = false;
 
-  users.users.root = {
-    hashedPasswordFile = config.age.secrets.root_pw.path;
-  };
+    users.users.root = {
+      hashedPasswordFile = config.age.secrets.root_pw.path;
+    };
+    
+    users.users.${machine.owner.name} = {
+      description = "Machine Owner";
+      extraGroups = [ "wheel" ];
+    };
 
-  users.users.${machineInfo.owner.name} = {
-    isNormalUser = true;
-    description = "Machine Owner";
-    extraGroups = [ "wheel" ];
-    shell = pkgs.bash;
-    home = "/home/${machineInfo.owner.name}";
-    hashedPasswordFile = config.age.secrets."${machineInfo.owner.name}_pw".path;
-  };
-
-  # TODO: add support for multi-user systems
+    users.users = builtins.mapAttrs (_: buildUser) machine.users;
 }
 

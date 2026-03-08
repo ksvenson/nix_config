@@ -19,9 +19,6 @@
     import-tree.url = "github:vic/import-tree";
   };
 
-  outputs = inputs@{flake-parts, import-tree, ...}: flake-parts.lib.mkFlake { inherit inputs; } { 
-    systems = [ "x86_64-linux" ];
-    imports = [./modules/starter-part.nix]; };
-
+  outputs = inputs@{flake-parts, import-tree, ...}: flake-parts.lib.mkFlake { inherit inputs; } (import-tree ./modules/flake);
 }
 
