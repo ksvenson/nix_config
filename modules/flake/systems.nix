@@ -1,3 +1,3 @@
 { lib, self, ... }: {
-  systems = lib.unique builtins.map (machine: machine.system) builtins.attrValues self.machines
+  systems = lib.unique (lib.mapAttrsToList (_: machine: machine.system) self.machines);
 }

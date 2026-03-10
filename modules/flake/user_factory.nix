@@ -1,4 +1,4 @@
-{ lib, inputs, self, config, ... }: {
+{ lib, inputs, self, config, ... }:
   let
     # homeManager depends on `system`, so we need to build a separate instance of each user for each machine.
     # This approach is inspired by ghost's approach here:
@@ -11,7 +11,7 @@
       inherit user;
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       modules = [
-        (inputs.import-tree ${self}/modules/users/${user.name})
+        (inputs.import-tree "${self}/modules/users/${user.name}")
       ];
     };
 
@@ -22,6 +22,6 @@
 
     buildUsers = machineList: lib.mergeAttrsList builtins.attrValues builtins.mapAttrs (_: buildUsersOnMachine) machineList;
 
-  in
+  in {
     flake.homeConfigurations = builtins.mapAttrs (_: buildUsers) self.machines;
 }

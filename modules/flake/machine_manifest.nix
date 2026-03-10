@@ -1,6 +1,6 @@
-{ inputs, self, config, ... }: {
+{ inputs, self, config, ... }:
   let
-    inherit (self.utils) labelList
+    inherit (self.utils) labelList;
 
     machineList = [
       rec {
@@ -13,7 +13,7 @@
         ]; };
       }
     ];
-  in
+  in {
     # formatting it this way makes implementing `machine_factory.nix` easier
     flake.machines = labelList { list = machineList; labelName = "hostName"; };
 }
