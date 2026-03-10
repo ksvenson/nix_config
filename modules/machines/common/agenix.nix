@@ -1,7 +1,7 @@
 { lib, config, inputs, self, machine, ... }: {
   imports = [ inputs.agenix.nixosModules.default ];
 
-  secrets_dir = "${self}/modules/machines/${machine.hostName}/secrets";
+  secrets_dir = "${self}/modules/machines/${machine.hostName}/_secrets";
 
   age.secrets = lib.mapAttrs' (_: user: lib.nameValuePair ("${user.name}_pw") ({
     file = "${config.secrets_dir}/${user.name}_pw.age";

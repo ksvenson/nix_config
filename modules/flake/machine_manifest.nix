@@ -8,9 +8,9 @@
         description = "desktop";
         system = "x86_64-linux";
         owner = self.users.kaironium;
-        users = labelList { list = [
+        users = labelList { labelName = "name"; list = [
           owner
-        ]; labelName = "name"; };
+        ]; };
       }
     ];
   in

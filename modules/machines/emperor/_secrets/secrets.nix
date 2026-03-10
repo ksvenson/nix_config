@@ -4,6 +4,6 @@ let
   kaironium = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJpKE0uy4DjYDc0EsvaH11jTBnc+lnK8nADCxOgkZeI";
 in
 {
-  "kaironium_user_passwd.age".publicKeys = [ system kaironium ];
-  "root_user_passwd.age".publicKeys = [ system ];
+  "root_pw.age".publicKeys = [ system ];
+  "kaironium_pw.age".publicKeys = [ system kaironium ];
 }

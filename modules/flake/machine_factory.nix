@@ -5,8 +5,7 @@
       specialArgs = {
         inherit inputs;
         inherit self; # gives nixosModules access to utils
-        inherit machine;  # TODO: this may not be necessary - here tentatively to automatically build owner user
-        modulesPath = "${inputs.nixpkgs}/nixos/modules";  # TODO: find out if this is necessary - we don't want `specialArgs` to get cluttered
+        inherit machine;
       };
       modules = [
         (inputs.import-tree ${self}/modules/common)
