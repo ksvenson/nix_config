@@ -4,7 +4,7 @@
       isNormalUser = true;
       shell = pkgs.bash;
       home = "/home/${user.name}";
-      hasedPasswordFile = config.age.secrets."${user.name}_pw".path;
+      hashedPasswordFile = config.age.secrets."${user.name}_pw".path;
     };
   in {
     users.mutableUsers = false;
@@ -19,6 +19,6 @@
       };
       }
       //
-      :builtins.mapAttrs (_: buildUser) machine.users;
+      builtins.mapAttrs (_: buildUser) machine.users;
 }
 

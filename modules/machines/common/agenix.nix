@@ -7,14 +7,14 @@
     age.secrets = lib.mapAttrs' (_: user: lib.nameValuePair
       ("${user.name}_pw")
       ({
-        file = "${config.secrets_dir}/${user.name}_pw.age";
+        file = "${secrets_dir}/${user.name}_pw.age";
         # TODO: add owner and group attributes here?
       })
       ) machine.users
       //
       {
         root_pw = {
-          file = "${config.secrets_dir}/root_pw.age";
+          file = "${secrets_dir}/root_pw.age";
         };
       };
 }
