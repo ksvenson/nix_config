@@ -1,11 +1,10 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, user, ... }: {
   programs.git = {
     enable = true;
     
     settings = {
       init.defaultBranch = "main";
-      user.name = "kaironium";
-      user.email = "kai.svenson628@gmail.com";
+      user = { inherit (user) name email; };
     };
   };
 }
