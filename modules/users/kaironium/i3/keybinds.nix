@@ -24,6 +24,8 @@
         "${mod}+Shift+${d}" = "move down";
         "${mod}+Shift+${l}" = "move left";
         "${mod}+Shift+${r}" = "move right";
+
+        "${mod}+z" = "focus child";
       };
 
       modes.resize = {

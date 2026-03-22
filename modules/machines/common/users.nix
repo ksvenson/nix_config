@@ -8,7 +8,6 @@
     }
     // (
       if user.name == machine.owner.name then {
-        description = "Machine Owner";
         extraGroups = [ "wheel" ];
       } else {}
     );
