@@ -12,6 +12,7 @@
       terminal = "kitty";
 
       keybindings = lib.mkOptionDefault {
+        "${mod}+Shift+p" = "exec rofi -show power-menu -modi 'power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu'";
         "${mod}+d" = "exec rofi -show drun";
 
         "${mod}+${u}" = "focus up";
