@@ -5,7 +5,13 @@
       shell = pkgs.bash;
       home = "/home/${user.name}";
       hashedPasswordFile = config.age.secrets."${user.name}_pw".path;
-    };
+    }
+    // (
+      if user.name == machine.owner.name then {
+        description = "Machine Owner";
+        extraGroups = [ "wheel" ];
+      } else {}
+    );
   in {
     users.mutableUsers = false;
 
@@ -13,12 +19,6 @@
       root = {
         hashedPasswordFile = config.age.secrets.root_pw.path;
       };
-      ${machine.owner.name} = {
-        description = "Machine Owner";
-        extraGroups = [ "wheel" ];
-      };
-      }
-      //
-      builtins.mapAttrs (_: buildUser) machine.users;
+    } // builtins.mapAttrs (_: buildUser) machine.users;
 }
 

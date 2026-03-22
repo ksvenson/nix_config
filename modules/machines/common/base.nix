@@ -7,6 +7,7 @@
       devices = [ "nodev" ];
       efiSupport = true;
       useOSProber = true;
+      configurationLimit = 10;
     };
   };
 
@@ -32,6 +33,13 @@
   };
 
   services.openssh.enable = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+  nix.settings.auto-optimise-store = true;
 }
 
 
