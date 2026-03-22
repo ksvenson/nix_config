@@ -1,10 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ lib, config, pkgs, ... }:
   let
     mod = "Mod1";
-    u = "k";
-    d = "l";
-    l = "j";
-    r = "semicolon";
+    arrows = {
+      "k" = "up";
+      "l" = "down";
+      "j" = "left";
+      "semicolon" = "right";
+    };
   in {
     xsession.windowManager.i3.config = {
       modifier = mod;
@@ -15,18 +17,17 @@
         "${mod}+Shift+p" = "exec rofi -show power-menu -modi 'power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu'";
         "${mod}+d" = "exec rofi -show drun";
 
-        "${mod}+${u}" = "focus up";
-        "${mod}+${d}" = "focus down";
-        "${mod}+${l}" = "focus left";
-        "${mod}+${r}" = "focus right";
-
-        "${mod}+Shift+${u}" = "move up";
-        "${mod}+Shift+${d}" = "move down";
-        "${mod}+Shift+${l}" = "move left";
-        "${mod}+Shift+${r}" = "move right";
-
+        "${mod}+a" = "focus parent";
         "${mod}+z" = "focus child";
-      };
+      }
+      \\
+      (lib.mapAttrs' (key: dir: lib.nameValuePair ("${mod}+${key}") ("focus ${dir}")) arrows)
+      \\
+      (lib.mapAttrs' (dir: key: lib.nameValuePair ("${mod}+Shift+${key}") ("move ${dir}")) arrows)
+      \\
+      (lib.mapAttrs' (num: label: lib.nameValuePair ("${mod}+${num}") ("workspace ${label}")) config.i3.workspaces)
+      \\
+      (lib.mapAttrs' (num: label: lib.nameValuePair ("${mod}+Shift+${num}") ("move container to workspace ${label}")) config.i3.workspaces);
 
       modes.resize = {
         "${u}" = "resize grow height 10 px or 10 ppt";
