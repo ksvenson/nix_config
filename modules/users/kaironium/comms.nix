@@ -3,6 +3,7 @@
     telegram-desktop
     discord
     zoom-us
+    whatsapp-electron
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
