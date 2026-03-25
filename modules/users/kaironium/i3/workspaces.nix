@@ -32,6 +32,13 @@
           { class = "^whatsapp-electron"; }
         ];
       };
+      ws4 = { num = "4"; label = "4"; assigns = []; };
+      ws5 = { num = "5"; label = "5"; assigns = []; };
+      ws6 = { num = "6"; label = "6"; assigns = []; };
+      ws7 = { num = "7"; label = "7"; assigns = []; };
+      ws8 = { num = "8"; label = "8"; assigns = []; };
+      ws9 = { num = "9"; label = "9"; assigns = []; };
+      ws10 = { num = "10"; label = "10"; assigns = []; };
     };
   };
 

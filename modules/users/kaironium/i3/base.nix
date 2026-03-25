@@ -18,6 +18,21 @@
             always = false;
           }
         ];
+
+        focus.newWindow = "focus";
+
+        window.commands = [
+          {
+            command = "border normal 2";
+            criteria.class = ".*";
+          }
+          {  # some quirk with Telegram makes it immune to `focus.newWindow = "focus";`, so we have to do it manually.
+            command = "focus";
+            criteria.class = "^Telegram";
+          }
+        ];
+
+        workspaceAutoBackAndForth = true;
       };
     };
   };
