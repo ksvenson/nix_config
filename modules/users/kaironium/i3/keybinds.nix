@@ -16,9 +16,9 @@
       //
       (lib.mapAttrs' (dir: key: lib.nameValuePair ("${mod}+Shift+${key}") ("move ${dir}")) arrows)
       //
-      (lib.mapAttrs' (num: label: lib.nameValuePair ("${mod}+${num}") ("workspace ${label}")) config.i3.workspaces)
+      (lib.mapAttrs' (_: ws: lib.nameValuePair ("${mod}+${ws.num}") ("workspace ${ws.label}")) config.i3.workspaces)
       //
-      (lib.mapAttrs' (num: label: lib.nameValuePair ("${mod}+Shift+${num}") ("move container to workspace ${label}")) config.i3.workspaces)
+      (lib.mapAttrs' (_: ws: lib.nameValuePair ("${mod}+Shift+${ws.num}") ("move container to workspace ${ws.label}")) config.i3.workspaces)
       //
       {
         "${mod}+Shift+p" = "exec rofi -show power-menu -modi 'power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu'";

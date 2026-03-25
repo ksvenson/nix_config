@@ -13,7 +13,7 @@
         
         startup = [
           {
-            command = "i3-msg workspace ${config.i3.workspaces.1}";
+            command = "i3-msg workspace '${config.i3.workspaces.ws1.label}'";
             notification = false;
             always = false;
           }
