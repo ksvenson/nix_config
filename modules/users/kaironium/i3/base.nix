@@ -6,10 +6,10 @@
       config = {
         terminal = "kitty";
 
-        fonts = {
-          names = [ config.theme.font.name ];
-          size = config.theme.font.size + 0.0;  # needs to be a float
-        };
+        # fonts = {
+        #   names = [ config.theme.font.name ];
+        #   size = config.theme.font.size + 0.0;  # needs to be a float
+        # };
         
         startup = [
           {

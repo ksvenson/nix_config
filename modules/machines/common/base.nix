@@ -33,6 +33,7 @@
   };
 
   services.openssh.enable = true;
+  programs.dconf.enable = true;  # needed to make `stylix` work
 
   nix.gc = {
     automatic = true;

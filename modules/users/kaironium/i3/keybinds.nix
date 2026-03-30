@@ -3,9 +3,9 @@
     mod = "Mod1";
     arrows = {
       "up" = "k";
-      "down" = "l";
-      "left" = "j";
-      "right" = "semicolon";
+      "down" = "j";
+      "left" = "h";
+      "right" = "l";
     };
   in {
     xsession.windowManager.i3.config = {
