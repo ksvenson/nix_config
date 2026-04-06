@@ -16,8 +16,6 @@
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-
-    windowManager.i3.enable = true;
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -25,7 +23,6 @@
   environment.systemPackages = with pkgs; [
     git
     vim
-    inputs.agenix.packages."${stdenv.hostPlatform.system}".default
   ];
 
   environment.variables = {
@@ -34,13 +31,8 @@
 
   services.openssh.enable = true;
   programs.dconf.enable = true;  # needed to make `stylix` work
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 14d";
-  };
-  nix.settings.auto-optimise-store = true;
+  programs.sway.enable = true;
+  security.polkit.enable = true;  # needed for `sway`
 }
 
 

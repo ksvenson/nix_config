@@ -13,7 +13,7 @@
         
         startup = [
           {
-            command = "i3-msg workspace '${config.i3.workspaces.ws1.label}'";
+            command = "i3-msg workspace '${config.workspaces.ws1.label}'";
             notification = false;
             always = false;
           }
@@ -33,6 +33,7 @@
         ];
 
         workspaceAutoBackAndForth = true;
+        assigns = (lib.mapAttrs' (_: ws: lib.nameValuePair (ws.label) (ws.assigns)) config.workspaces);
       };
     };
   };
