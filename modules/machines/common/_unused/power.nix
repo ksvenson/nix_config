@@ -1,7 +1,6 @@
+# this config not needed when using sway
 { config, pkgs, inputs, ... }: {
-  security.polkit.enable = true;  # enables all users to suspect, hibernate, shutdown, etc... without sudo
-
-  # locks all users when sleeping
+  # lock all users before sleeping
   systemd.services."lock-before-sleep" = {
     before = [ "sleep.target" ];
     wantedBy = [ "sleep.target" ];

@@ -8,10 +8,11 @@
       startup = [
         {
           command = "swaymsg workspace '${config.workspaces.ws1.label}'";
-          # notification = false;
           always = false;
         }
       ];
+
+      bars = [];
 
       focus.newWindow = "focus";
 
