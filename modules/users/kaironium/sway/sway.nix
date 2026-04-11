@@ -7,7 +7,7 @@
 
       startup = [
         {
-          command = "swaymsg workspace '${config.workspaces.ws1.label}'";
+          command = "swaymsg workspace number 1";
           always = false;
         }
       ];
@@ -31,7 +31,7 @@
       ) config.workspaces ));
 
       workspaceAutoBackAndForth = true;
-      assigns = (lib.mapAttrs' (_: ws: lib.nameValuePair (ws.label) (ws.assigns)) config.workspaces);
+      assigns = (lib.mapAttrs' (_: ws: lib.nameValuePair (ws.num) (ws.assigns)) config.workspaces);
     };
   };
 }

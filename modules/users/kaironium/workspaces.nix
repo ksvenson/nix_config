@@ -26,19 +26,19 @@
 
   config.workspaces = {
     ws1 = {
-      label = "1: Terminals";
+      label = "";
       assigns = [
         { app_id = "(?i)^kitty"; }
       ];
     };
     ws2 = {
-      label = "2: Browsers";
+      label = "󰖟";
       assigns = [
         { app_id = "(?i)^firefox"; }
       ];
     };
     ws3 = {
-      label = "3: Comms";
+      label = "";
       assigns = [
         { app_id = "(?i)telegram"; }
         { class = "(?i)^discord"; }

@@ -1,47 +1,24 @@
-{ config, ... }: {
+{ lib, config, ... }: {
   programs.waybar.settings.mainBar = {
-    "custom/nixos" = {
-      format = "snowflake";
-      tooltip = true;
-      tooltip-format = "this is a test";
-    };
     "sway/workspaces" = {
       disable-scroll = true;
       all-outputs = true;
       warp-on-scroll = false;
-      format = "{name}";
-      format-icons = {
-        urgent = "";
-        active = "";
-        default = "";
-      };
-    };
-    idle_inhibitor = {
       format = "{icon}";
-      format-icons = {
-        activated = "";
-        deactivated = "";
-      };
+      format-icons = (lib.mapAttrs' (_: ws: lib.nameValuePair
+        (ws.num)
+        (ws.label)
+      ) config.workspaces);
     };
     network = {
-      format-wifi = "   {essid} ({signalStrength}%)";
-      format-ethernet = "{ipaddr}/{cidr} ";
-      tooltip-format = "{ifname} via {gwaddr} ";
-      format-linked = "{ifname} (No IP) ";
-      format-disconnected = "Disconnected ⚠";
-    };
-    cpu = {
-      format = "  {usage}%";
-      tooltip = true;
-    };
-    memory = {
-      format = "  {}%";
-      tooltip = true;
+      format-wifi = "   {signalStrength}%";
+      format-ethernet = "{ipaddr}/{cidr}";
+      tooltip-format = "{essid}";
+      format-disconnected = "󰞃";
     };
     clock = {
-      format = "{:%H:%M | %e %B} ";
+      format = "{:%H:%M | %B %e} ";
       tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-      format-alt = "{:%Y-%m-%d}";
     };
   };
 }
