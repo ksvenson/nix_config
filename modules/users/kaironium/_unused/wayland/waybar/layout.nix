@@ -3,8 +3,7 @@
     mainBar = {
       layer = "top";
       position = "bottom";
-      height = 42;
-      # spacing = 20;
+      height = 30;
       modules-left = [
         "sway/workspaces"
       ];

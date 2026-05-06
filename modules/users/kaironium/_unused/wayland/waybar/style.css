@@ -1,31 +1,31 @@
-* {
-    font-family: "Ubuntu Nerd Font";
-}
-
 window#waybar {
     background: transparent;
-    padding: 10px 10px;
 }
 
 #workspaces button,
 #network,
 #clock {
-  background-color: @base01;
   margin: 4px;
+  background-color: @base01;
   border-radius: 10px;
-  transition: all 0.15s ease-in-out;
+  min-width: 30px;
+  min-height: 30px;
+  padding: 2px;
+  transition: background-color 0.15s ease-in-out;
 }
 
 #workspaces button label {
+  font-size: 25px;
+}
+
+#network,
+#clock {
   font-size: 20px;
 }
 
-/* window#waybar need to be here in order to override some stylix defaults */
-window#waybar #workspaces button.focused {
+#workspaces button.focused {
   background-color: @base0D;
   color: @base01;
-  border: none;
-  box-shadow: none;
 }
 
 #workspaces button:hover,

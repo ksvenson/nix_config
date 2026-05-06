@@ -1,7 +1,13 @@
 { config, lib, pkgs, ... }: {
   wayland.windowManager.sway = {
     enable = true;
+
     wrapperFeatures.gtk = true;  # recommended by the nixos wiki to fix common issue with GTK 3 apps
+
+    extraOptions = [
+      "--unsupported-gpu"  # since sway doesn't support unfree nvidia drivers
+    ];
+
     config = {
       terminal = "kitty";
 
@@ -10,9 +16,14 @@
           command = "swaymsg workspace number 1";
           always = false;
         }
+        { command = "noctalia-shell"; }
       ];
 
-      bars = [];
+      output = {
+        "DP-1" = {
+          mode = "2560x1440@143.856Hz";
+        };
+      };
 
       focus.newWindow = "focus";
 

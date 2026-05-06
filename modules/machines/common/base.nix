@@ -1,16 +1,4 @@
 { config, lib, pkgs, inputs, ... }: {
-  
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    grub = {
-      enable = true;
-      devices = [ "nodev" ];
-      efiSupport = true;
-      useOSProber = true;
-      configurationLimit = 10;
-    };
-  };
-
   networking.networkmanager.enable = true;
 
   services.xserver = {

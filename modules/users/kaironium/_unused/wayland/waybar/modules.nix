@@ -11,7 +11,7 @@
       ) config.workspaces);
     };
     network = {
-      format-wifi = "   {signalStrength}%";
+      format-wifi = " {signalStrength}%";
       format-ethernet = "{ipaddr}/{cidr}";
       tooltip-format = "{essid}";
       format-disconnected = "󰞃";
