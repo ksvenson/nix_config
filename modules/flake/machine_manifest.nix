@@ -4,7 +4,7 @@
 
     machineList = [
       rec {
-        hostName = "emperor";
+        hostName = "warpcore";
         description = "desktop";
         system = "x86_64-linux";
         owner = self.users.kaironium;
