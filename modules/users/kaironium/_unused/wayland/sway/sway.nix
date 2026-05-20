@@ -1,9 +1,8 @@
 { config, lib, pkgs, ... }: {
   wayland.windowManager.sway = {
     enable = true;
-
-    # wrapperFeatures.gtk = true;  # recommended by the nixos wiki to fix common issue with GTK 3 apps
-
+    
+    # TODO: this needs to go into some machine-specific wrapper
     extraOptions = [
       "--unsupported-gpu"  # since sway doesn't support unfree nvidia drivers
     ];
@@ -16,9 +15,10 @@
           command = "swaymsg workspace number 1";
           always = false;
         }
-        { command = "noctalia-shell"; }
+        # { command = "noctalia-shell"; }
       ];
-
+      
+      # causes modeset when logging in
       # output = {
       #   "DP-1" = {
       #     mode = "2560x1440@143.856Hz";

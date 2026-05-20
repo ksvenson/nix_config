@@ -1,0 +1,4 @@
+{ config, ... }: ''
+spawn-at-startup "noctalia-shell"
+spawn-at-startup "xwayland-satellite"
+''

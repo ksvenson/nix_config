@@ -18,6 +18,7 @@
   };
 
   services.openssh.enable = true;
+  security.polkit.enable = true;
   programs.dconf.enable = true;  # needed to make `stylix` work
 }
 

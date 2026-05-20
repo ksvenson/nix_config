@@ -4,10 +4,8 @@
     rate = "143.856";
 
     greetdSwayConfig = pkgs.writeText "greetd-sway-config" ''
-      # Lock the login screen to your exact refresh rate!
       output "DP-1" mode ${res}@${rate}Hz
       
-      # Launch ReGreet, and when you log in, kill this temporary Sway instance
       exec "${pkgs.greetd.regreet}/bin/regreet; swaymsg exit"
     '';
   in {

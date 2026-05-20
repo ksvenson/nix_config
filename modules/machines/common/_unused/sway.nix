@@ -1,6 +1,7 @@
-{ config, ... }: {
-  programs.sway.enable = true;
-  security.polkit.enable = true;
+{ nixpkgs, inputs, config, ... }: {
+  programs.sway = {
+    enable = true;
+  };
 
   programs.uwsm = {
     waylandCompositors = {
