@@ -27,7 +27,7 @@ binds {
   XF86AudioPlay         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "playPause"; }
   XF86AudioStop         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "playPause"; }
   XF86AudioNext         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "next"; }
-  XF86AudioPrev         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "prev"; }
+  XF86AudioPrev         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "previous"; }
 
   //Brightness
   XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
@@ -68,24 +68,24 @@ binds {
   ${mod}+Shift+${ws_up}   { move-column-to-workspace-up; }
   ${mod}+Shift+${ws_down} { move-column-to-workspace-down; }
 
-  ${mod}+1 { focus-workspace ${config.workspaces.ws1}; }
-  ${mod}+2 { focus-workspace ${config.workspaces.ws2}; }
-  ${mod}+3 { focus-workspace ${config.workspaces.ws3}; }
-  ${mod}+4 { focus-workspace ${config.workspaces.ws4}; }
-  ${mod}+5 { focus-workspace ${config.workspaces.ws5}; }
-  ${mod}+6 { focus-workspace ${config.workspaces.ws6}; }
-  ${mod}+7 { focus-workspace ${config.workspaces.ws7}; }
-  ${mod}+8 { focus-workspace ${config.workspaces.ws8}; }
-  ${mod}+9 { focus-workspace ${config.workspaces.ws9}; }
-  ${mod}+Shift+1 { move-column-to-workspace ${config.workspaces.ws1}; }
-  ${mod}+Shift+2 { move-column-to-workspace ${config.workspaces.ws2}; }
-  ${mod}+Shift+3 { move-column-to-workspace ${config.workspaces.ws3}; }
-  ${mod}+Shift+4 { move-column-to-workspace ${config.workspaces.ws4}; }
-  ${mod}+Shift+5 { move-column-to-workspace ${config.workspaces.ws5}; }
-  ${mod}+Shift+6 { move-column-to-workspace ${config.workspaces.ws6}; }
-  ${mod}+Shift+7 { move-column-to-workspace ${config.workspaces.ws7}; }
-  ${mod}+Shift+8 { move-column-to-workspace ${config.workspaces.ws8}; }
-  ${mod}+Shift+9 { move-column-to-workspace ${config.workspaces.ws9}; }
+  ${mod}+1 { focus-workspace "${config.workspaces.ws1}"; }
+  ${mod}+2 { focus-workspace "${config.workspaces.ws2}"; }
+  ${mod}+3 { focus-workspace "${config.workspaces.ws3}"; }
+  ${mod}+4 { focus-workspace "${config.workspaces.ws4}"; }
+  ${mod}+5 { focus-workspace "${config.workspaces.ws5}"; }
+  ${mod}+6 { focus-workspace "${config.workspaces.ws6}"; }
+  ${mod}+7 { focus-workspace "${config.workspaces.ws7}"; }
+  ${mod}+8 { focus-workspace "${config.workspaces.ws8}"; }
+  ${mod}+9 { focus-workspace "${config.workspaces.ws9}"; }
+  ${mod}+Shift+1 { move-column-to-workspace "${config.workspaces.ws1}"; }
+  ${mod}+Shift+2 { move-column-to-workspace "${config.workspaces.ws2}"; }
+  ${mod}+Shift+3 { move-column-to-workspace "${config.workspaces.ws3}"; }
+  ${mod}+Shift+4 { move-column-to-workspace "${config.workspaces.ws4}"; }
+  ${mod}+Shift+5 { move-column-to-workspace "${config.workspaces.ws5}"; }
+  ${mod}+Shift+6 { move-column-to-workspace "${config.workspaces.ws6}"; }
+  ${mod}+Shift+7 { move-column-to-workspace "${config.workspaces.ws7}"; }
+  ${mod}+Shift+8 { move-column-to-workspace "${config.workspaces.ws8}"; }
+  ${mod}+Shift+9 { move-column-to-workspace "${config.workspaces.ws9}"; }
 
   ${mod}+BracketLeft  { consume-or-expel-window-left; }
   ${mod}+BracketRight { consume-or-expel-window-right; }
