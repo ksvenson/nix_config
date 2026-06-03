@@ -3,11 +3,13 @@
     telegram-desktop
     discord
     zoom-us
-    whatsapp-electron
+    karere
+    spotify
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
     "discord"
     "zoom"
+    "spotify"
   ];
 }
