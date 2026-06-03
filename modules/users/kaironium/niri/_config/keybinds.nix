@@ -20,12 +20,14 @@ binds {
   // TODO: locking
   ${mod}+Q repeat=false {close-window; }
   
-  // Audio
+  // Audio and Media
   XF86AudioRaiseVolume  allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
   XF86AudioLowerVolume  allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
   XF86AudioMute         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
   XF86AudioPlay         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "playPause"; }
   XF86AudioStop         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "playPause"; }
+  XF86AudioNext         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "next"; }
+  XF86AudioPrev         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "prev"; }
 
   //Brightness
   XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
@@ -60,30 +62,30 @@ binds {
 
   ${mod}+Ctrl+Shift+${ws_up}                             { move-workspace-up; }
   ${mod}+Ctrl+Shift+${ws_down}                           { move-workspace-down; }
-  ${mod}+Ctrl+Shift+WheelScrollUp   cooldown-ms=150 { move-workspace-up; }
-  ${mod}+Ctrl+Shift+WheelScrollDown cooldown-ms=150 { move-workspace-down; }
+  ${mod}+Ctrl+Shift+WheelScrollUp   cooldown-ms=150      { move-workspace-up; }
+  ${mod}+Ctrl+Shift+WheelScrollDown cooldown-ms=150      { move-workspace-down; }
 
   ${mod}+Shift+${ws_up}   { move-column-to-workspace-up; }
   ${mod}+Shift+${ws_down} { move-column-to-workspace-down; }
 
-  ${mod}+1 { focus-workspace 1; }
-  ${mod}+2 { focus-workspace 2; }
-  ${mod}+3 { focus-workspace 3; }
-  ${mod}+4 { focus-workspace 4; }
-  ${mod}+5 { focus-workspace 5; }
-  ${mod}+6 { focus-workspace 6; }
-  ${mod}+7 { focus-workspace 7; }
-  ${mod}+8 { focus-workspace 8; }
-  ${mod}+9 { focus-workspace 9; }
-  ${mod}+Shift+1 { move-column-to-workspace 1; }
-  ${mod}+Shift+2 { move-column-to-workspace 2; }
-  ${mod}+Shift+3 { move-column-to-workspace 3; }
-  ${mod}+Shift+4 { move-column-to-workspace 4; }
-  ${mod}+Shift+5 { move-column-to-workspace 5; }
-  ${mod}+Shift+6 { move-column-to-workspace 6; }
-  ${mod}+Shift+7 { move-column-to-workspace 7; }
-  ${mod}+Shift+8 { move-column-to-workspace 8; }
-  ${mod}+Shift+9 { move-column-to-workspace 9; }
+  ${mod}+1 { focus-workspace ${config.workspaces.ws1}; }
+  ${mod}+2 { focus-workspace ${config.workspaces.ws2}; }
+  ${mod}+3 { focus-workspace ${config.workspaces.ws3}; }
+  ${mod}+4 { focus-workspace ${config.workspaces.ws4}; }
+  ${mod}+5 { focus-workspace ${config.workspaces.ws5}; }
+  ${mod}+6 { focus-workspace ${config.workspaces.ws6}; }
+  ${mod}+7 { focus-workspace ${config.workspaces.ws7}; }
+  ${mod}+8 { focus-workspace ${config.workspaces.ws8}; }
+  ${mod}+9 { focus-workspace ${config.workspaces.ws9}; }
+  ${mod}+Shift+1 { move-column-to-workspace ${config.workspaces.ws1}; }
+  ${mod}+Shift+2 { move-column-to-workspace ${config.workspaces.ws2}; }
+  ${mod}+Shift+3 { move-column-to-workspace ${config.workspaces.ws3}; }
+  ${mod}+Shift+4 { move-column-to-workspace ${config.workspaces.ws4}; }
+  ${mod}+Shift+5 { move-column-to-workspace ${config.workspaces.ws5}; }
+  ${mod}+Shift+6 { move-column-to-workspace ${config.workspaces.ws6}; }
+  ${mod}+Shift+7 { move-column-to-workspace ${config.workspaces.ws7}; }
+  ${mod}+Shift+8 { move-column-to-workspace ${config.workspaces.ws8}; }
+  ${mod}+Shift+9 { move-column-to-workspace ${config.workspaces.ws9}; }
 
   ${mod}+BracketLeft  { consume-or-expel-window-left; }
   ${mod}+BracketRight { consume-or-expel-window-right; }

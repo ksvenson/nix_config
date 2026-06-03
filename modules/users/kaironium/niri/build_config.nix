@@ -5,12 +5,16 @@
 { config, pkgs, ... } @ args: 
   let
     startup_frag = import ./_config/startup.nix args;
+    ws_frag = import ./_config/workspaces.nix args;
+    wr_frag = import ./_config/window_rules.nix args;
     inputs_frag = import ./_config/inputs.nix args;
     keybinds_frag = import ./_config/keybinds.nix args;
     misc_frag = import ./_config/misc.nix args;
   in {
     xdg.configFile."niri/config.kdl".text = ''
       ${startup_frag}
+      ${ws_frag}
+      ${wr_frag}
       ${inputs_frag}
       ${keybinds_frag}
       ${misc_frag}
