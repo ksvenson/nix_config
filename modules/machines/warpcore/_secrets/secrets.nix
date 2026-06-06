@@ -1,7 +1,7 @@
 let
-  system = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFfSqWMbZ4oL1Of2v5/plM7y/A7bTiek3kc4kSY5/mQ5";
+  system = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGUO3H2aFXbXlPQdXwMp8zzR3Htn3IuLtiltbLmdg8cj";
 
-  kaironium = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJpKE0uy4DjYDc0EsvaH11jTBnc+lnK8nADCxOgkZeI";
+  kaironium = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE+aeFJEuF2yYQdLYE7r9BMuG8wW8BTLYWA0EZ2W9pMu";
 in
 {
   "root_pw.age".publicKeys = [ system ];

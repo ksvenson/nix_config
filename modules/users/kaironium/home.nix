@@ -7,5 +7,5 @@
   ];
 
   programs.home-manager.enable = true;
-  home.stateVersion = "25.11";  # NEVER change this value.
+  home.stateVersion = "26.05";  # NEVER change this value.
 }
