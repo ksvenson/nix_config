@@ -12,6 +12,15 @@
           owner
         ]; };
       }
+      rec {
+        hostName = "runabout";
+        description = "laptop";
+        system = "x86_64-linux";
+        owner = self.users.kaironium;
+        users = labelList { labelName = "name"; list = [
+          owner
+        ]; };
+      }
     ];
   in {
     # formatting it this way makes implementing `machine_factory.nix` easier
