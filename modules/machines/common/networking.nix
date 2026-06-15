@@ -1,11 +1,12 @@
-{ config, ... }: {
+{ config, self, ... }: {
   age.secrets."networking".file = "${self}/modules/machines/common/_secrets/networking.age";
   
   networking.networkmanager.ensureProfiles = {
     environmentFiles = [ config.age.secrets."networking".path ];
     
     profiles = {
-      "oasis" = {};  # TODO
+      # TODO: oasis
+      # TODO: office
       ##################################
       "utexas" = {
         connection = {
@@ -43,7 +44,7 @@
           ssid = "The Holy Shrine of Data";
         };
         wifi-security = {
-          key-mgmt = "wpa-eap";
+          key-mgmt = "wpa-psk";
           psk = "$shrine_pw";
         };
         ipv4 = {

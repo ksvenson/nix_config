@@ -1,5 +1,6 @@
 { config, ...}: ''
 input {
+  disable-power-key-handling
   keyboard {
     xkb {
       layout "us"
@@ -14,8 +15,8 @@ input {
     tap
     drag false
     // accel-profile "flat"
-    accel-speed 0.0  // this just changes sensitivity if accel-profile is flat
-    scroll-factor 0.3
+    accel-speed 0.15  // this just changes sensitivity if accel-profile is flat
+    scroll-factor 0.5
   }
 }
 ''
