@@ -8,6 +8,16 @@
         before_sleep_cmd = "niri msg action power-off-monitors; noctalia-shell ipc call lockScreen lock";
         lock_cmd = "noctalia-shell ipc call lockScreen lock";
       };
+      listener = [
+        {
+          timeout = 300;
+          on-timeout = "noctalia-shell ipc call lockScreen lock";
+        }
+        {
+          timeout = 600;
+          on-timeout = "systemctl suspend-then-hibernate";
+        }
+      ];
     };
   };
 }

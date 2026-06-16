@@ -1,6 +1,4 @@
 { config, lib, pkgs, inputs, ... }: {
-  networking.networkmanager.enable = true;
-
   services.xserver = {
     enable = true;
     xkb.layout = "us";
