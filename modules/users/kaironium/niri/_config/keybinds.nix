@@ -15,23 +15,23 @@ binds {
   ${mod}+Shift+Slash { show-hotkey-overlay; }
 
   ${mod}+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-  ${mod}+D hotkey-overlay-title="Open Noctalia Launcher" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-  ${mod}+P hotkey-overlay-title="Power Menu" { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+  ${mod}+D hotkey-overlay-title="Open Noctalia Launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+  ${mod}+P hotkey-overlay-title="Power Menu" { spawn "noctalia" "msg" "panel-toggle" "session"; }
   // TODO: locking
   ${mod}+Q repeat=false {close-window; }
   
   // Audio and Media
-  XF86AudioRaiseVolume  allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
-  XF86AudioLowerVolume  allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-  XF86AudioMute         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
-  XF86AudioPlay         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "playPause"; }
-  XF86AudioStop         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "playPause"; }
-  XF86AudioNext         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "next"; }
-  XF86AudioPrev         allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "media" "previous"; }
+  XF86AudioRaiseVolume  allow-when-locked=true { spawn "noctalia" "msg" "volume-up"; }
+  XF86AudioLowerVolume  allow-when-locked=true { spawn "noctalia" "msg" "volume-down"; }
+  XF86AudioMute         allow-when-locked=true { spawn "noctalia" "msg" "volume-mute"; }
+  XF86AudioPlay         allow-when-locked=true { spawn "noctalia" "msg" "media" "toggle"; }
+  XF86AudioStop         allow-when-locked=true { spawn "noctalia" "msg" "media" "stop"; }
+  XF86AudioNext         allow-when-locked=true { spawn "noctalia" "msg" "media" "next"; }
+  XF86AudioPrev         allow-when-locked=true { spawn "noctalia" "msg" "media" "previous"; }
 
   //Brightness
-  XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-  XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia" "msg" "brightness-up"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down"; }
   
   // Navigation and Movement
   // Overview can be opened in 3 different ways:

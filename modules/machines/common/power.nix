@@ -38,5 +38,7 @@
     };
   };
 
-  services.power-profiles-daemon.enable = true;  # for noctalia
+  # for noctalia power profiles
+  # systemd.services.tlp-pd.enable = true;
+  # services.power-profiles-daemon.enable = false;
 }
