@@ -1,7 +1,7 @@
 { lib, inputs, self, config, ... }:
   let
-    # homeManager depends on `system`, so we need to build a separate instance of each user for each machine.
-    # This approach is inspired by ghost's approach here:
+    # homeManager depends on `system`, so we need to build a separate instance of each
+    # user for each machine. This approach is inspired by ghost's approach here:
     # https://github.com/nix-community/home-manager/issues/3075#issuecomment-3037360368
     # TODO: check back on this thread to see if homeManager comes out with a more
     # system-agnostic implementation.
