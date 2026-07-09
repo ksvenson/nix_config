@@ -1,4 +1,4 @@
-{ config, ...}: {
+{ config, pkgs, ...}: {
   # Taken from the nixos wiki:
   # https://wiki.nixos.org/wiki/Intel_Graphics
   hardware.graphics = {
