@@ -28,7 +28,7 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # nixvim asks to not follow nixpkgs
     };
 
     import-tree.url = "github:vic/import-tree";
