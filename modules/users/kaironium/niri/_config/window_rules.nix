@@ -36,8 +36,8 @@ window-rule {
  default-column-width { proportion 1.00; }
 }
 
-window-rule {
-  match app-id="firefox" title="^Extension"
-  max-width 500
-}
+// window-rule {
+//   match app-id="firefox" title="^Extension"
+//   max-width 500
+// }
 ''
