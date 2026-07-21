@@ -7,53 +7,62 @@
     vimAlias = true;
 
     opts = {
+      updatetime = 300;  # ms
       number = true;
       relativenumber = true;
-      expandtab = true;
-      tabstop = 2;
-      shiftwidth = 2;
+      expandtab = true;  # spaces instead of tab
+      tabstop = 2;       # width of tab
+      shiftwidth = 2;    # spaces added by autoindent
+      softtabstop = 2;   # spaces removed by backspace
       scrolloff = 8;
       undofile = true;
       clipboard = "unnamedplus";
       ignorecase = true;
       smartcase = true;
       wrap = false;
-      # because we have autosave:
-      swapfile = false;
+      swapfile = false;  # because we have autosave
       textwidth = 88;
-      # format comments with `gq`
-      formatoptions = "cqjn";
+      formatoptions = "cqjn";  # format comments with `gq`
     };
-
-    # extraPackages = with pkgs; [
-    #   ruff
-    #   basedpyright  # worth adding here too for the same reason
-    # ];
+    diagnostic.settings = {
+      float = {
+        border = "single";
+        source = "if_many";
+      };
+    };
 
     plugins = {
       auto-save = {
         enable = true;
       };
-      # lsp = {
-      #   enable = true;
-      #   servers.basedpyright.enable = true;
-      # };
-      treesitter = {
+      lsp = {
         enable = true;
-        settings = {
-          indent.enable = true;
+        servers = {
+          nil_ls.enable = true;
+          pyright.enable = true;
         };
       };
-      # conform-nvim = {
-      #   enable = true;
-      #   settings.formatters_by_ft.python = [ "ruff_format" ];
-      #   # format_on_save = {
-      #   #   timeout_ms = 500;
-      #   #   lsp_fallback = true;
-      #   # };
-      # };
+      treesitter = {
+        enable = true;
+        highlight.enable = true;
+        indent.enable = true;
+      };
       illuminate.enable = true;
       nvim-autopairs.enable = true;
     };
+    autoCmd = [{
+      event = "CursorHold";
+      desc = "Show diagnostic under cursor";
+
+      callback = {
+        __raw = ''
+          function()
+            vim.diagnostic.open_float({
+              scope = "cursor",
+            })
+          end
+        '';
+      };
+    }];
   };
 }

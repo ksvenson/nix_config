@@ -6,6 +6,7 @@
     autoEnable = true;
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/selenized-black.yaml";
+    targets.nixvim.plugin = "base16-nvim";
 
     fonts = {
       monospace = {
