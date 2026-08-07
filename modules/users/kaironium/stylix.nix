@@ -22,5 +22,6 @@
         name = "Tinos Nerd Font";
       };
     };
+    targets.firefox.enable = false;
   };
 }

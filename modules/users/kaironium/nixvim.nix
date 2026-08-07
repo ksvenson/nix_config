@@ -2,6 +2,7 @@
   imports = [ inputs.nixvim.homeModules.nixvim ];
 
   programs.nixvim = {
+    nixpkgs.source = inputs.nixpkgs;
     enable = true;
     viAlias = true;
     vimAlias = true;
