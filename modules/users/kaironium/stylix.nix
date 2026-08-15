@@ -5,6 +5,7 @@
     enable = true;
     autoEnable = true;
 
+    polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/selenized-black.yaml";
     targets.nixvim.plugin = "base16-nvim";
 
@@ -22,6 +23,8 @@
         name = "Tinos Nerd Font";
       };
     };
+
     targets.firefox.enable = false;
+    targets.noctalia.enable = false;
   };
 }
