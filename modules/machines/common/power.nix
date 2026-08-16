@@ -1,25 +1,15 @@
 { config, ... }: {
-  # Use acpid to handle lid closing. Sometimes when using logind,
-  # `suspend-then-hibernate` doesn't fire if the lid is open-closed
-  # in rapid succession.
   services.logind.settings.Login = {
-    HandleLidSwitch = "ignore";
+    HandleLidSwitch = "suspend-then-hibernate";
+    HandleLidSwitchExternalPower = "suspend-then-hibernate";
+    HandleLidSwitchDocked = "ignore";
     HandlePowerKey = "suspend-then-hibernate";
     HandlePowerKeyLongPress = "poweroff";
+    HoldoffTimeoutSec = "0s";
   };
 
   systemd.sleep.settings.Sleep = {
     HibernateDelaySec = "30m";
-  };
-
-  services.acpid = {
-    enable = true;
-    handlers = {
-      lid-close = {
-        event = "button/lid.*close.*";
-        action = "systemctl suspend-then-hibernate";
-      };
-    };
   };
 
   services.upower = {
@@ -37,8 +27,4 @@
       STOP_CHARGE_THRESH_BAT0  = 80;
     };
   };
-
-  # for noctalia power profiles
-  # systemd.services.tlp-pd.enable = true;
-  # services.power-profiles-daemon.enable = false;
 }
