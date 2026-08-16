@@ -7,6 +7,7 @@
 
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/selenized-black.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
     targets.nixvim.plugin = "base16-nvim";
 
     fonts = {

@@ -1,5 +1,7 @@
-{ lib, inputs, ... }: {
+{ config, inputs, ... }: {
   imports = [ inputs.noctalia.homeModules.default ];
+  
+  home.file.".config/noctalia/palettes/custom_oxocarbon.json".source = ./Oxocarbon.json;
 
   programs.noctalia = {
     enable = true;
@@ -7,7 +9,7 @@
     settings = {
       bar.default = {
         position = "bottom";
-        start = [ "control-center" "workspaces" ];
+        start = [ "control-center" "taskbar" ];
         center = [ ];
         end = [ "network" "volume" "battery" "clock" ];
         radius = 0;
@@ -19,6 +21,8 @@
         margin_edge = 0;
         margin_ends = 0;
       };
+
+      control_center.calendar.show_events_card = false;
 
       lockscreen.fingerprint = false;
 
@@ -34,13 +38,11 @@
           session_placement = "centered";
         };
       };
-
+      
       theme = {
-        builtin = "Noctalia";
-        community_palette = "Oxocarbon";
+        source = "custom";
+        custom_palette = "custom_oxocarbon";
         mode = "dark";
-        source = "community";
-        wallpaper_scheme = "m3-content";
       };
 
       weather.enabled = false;
@@ -55,8 +57,14 @@
           hide_empty_workspaces = true;
           scale = 1.5;
         };
-        network.scale = 1.5;
-        volume.scale = 1.5;
+        network = {
+          show_label = false;
+          scale = 1.5;
+        };
+        volume = {
+          show_label = false;
+          scale = 1.5;
+        };
         battery.scale = 1.5;
         clock = {
           scale = 1.5;
